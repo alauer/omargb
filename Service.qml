@@ -26,7 +26,7 @@ Item {
   property var manifest: null
 
   readonly property string pluginId: (manifest && manifest.id) || "io.github.vonsensey.omargb"
-  readonly property string sourceDir: (manifest && manifest.__sourceDir) ? String(manifest.__sourceDir) : ""
+  readonly property string sourceDir: Qt.resolvedUrl(".").toString().replace(/^file:\/\//, "").replace(/\/$/, "")  // host strips manifest.__sourceDir for third-party plugins
 
   // ------------------------------------------------------------- settings
   // Read from the bar layout entry the widget writes, exactly as the widget
